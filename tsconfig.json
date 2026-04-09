@@ -10,12 +10,13 @@
 		"declarationMap": true,
 		"sourceMap": true,
 		"outDir": "dist",
-		"rootDir": "src",
+		"rootDir": ".",
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"noUncheckedIndexedAccess": true,
-		"noEmit": true
+		"noEmit": true,
+		"types": ["node", "vitest/globals"]
 	},
-	"include": ["src/**/*.ts"],
+	"include": ["src/**/*.ts", "tests/**/*.ts"],
 	"exclude": ["node_modules", "dist"]
 }
