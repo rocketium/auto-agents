@@ -1,0 +1,4 @@
+pre-push:
+  commands:
+    check-exact-version:
+      run: npm run check-exact-version

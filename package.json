@@ -13,9 +13,14 @@
 			"import": "./dist/index.js"
 		}
 	},
-	"files": ["dist", "README.md", "LICENSE"],
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
 	"engines": {
-		"node": ">=20.0.0"
+		"node": ">=24.0.0",
+		"npm": ">11.12.1"
 	},
 	"scripts": {
 		"build": "tsup",
@@ -24,13 +29,16 @@
 		"test": "vitest run",
 		"boundary-check": "node scripts/boundary-check.mjs",
 		"ci:check": "npm run boundary-check && npm run typecheck && npm run test && npm run build",
-		"prepublishOnly": "npm run ci:check"
+		"prepublishOnly": "npm run ci:check",
+		"check-exact-version": "node scripts/check-exact-package-versions.cjs",
+		"install-lefthook": "node scripts/install-lefthook.cjs",
+		"prepare": "npm run install-lefthook"
 	},
 	"peerDependencies": {
-		"@langchain/anthropic": "^1.0.0",
-		"@langchain/core": "^1.0.0",
-		"@langchain/langgraph": "^1.0.0",
-		"zod": "^3.23.0"
+		"@langchain/anthropic": "1.3.25",
+		"@langchain/core": "1.1.36",
+		"@langchain/langgraph": "1.2.6",
+		"zod": "3.25.76"
 	},
 	"peerDependenciesMeta": {
 		"@langchain/anthropic": {
@@ -38,16 +46,24 @@
 		}
 	},
 	"devDependencies": {
-		"@langchain/anthropic": "^1.3.14",
-		"@langchain/core": "^1.1.19",
-		"@langchain/langgraph": "^1.1.3",
-		"@types/node": "^22.10.0",
-		"tsup": "^8.5.1",
-		"typescript": "^5.7.2",
-		"vitest": "^3.2.4",
-		"zod": "^3.24.1"
+		"@langchain/anthropic": "1.3.25",
+		"@langchain/core": "1.1.36",
+		"@langchain/langgraph": "1.2.6",
+		"@types/node": "22.19.15",
+		"tsup": "8.5.1",
+		"typescript": "5.9.3",
+		"vitest": "3.2.4",
+		"zod": "3.25.76",
+		"lefthook": "2.1.6"
 	},
-	"keywords": ["agents", "langgraph", "multi-agent", "orchestration", "llm", "runtime"],
+	"keywords": [
+		"agents",
+		"langgraph",
+		"multi-agent",
+		"orchestration",
+		"llm",
+		"runtime"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/OWNER/auto-agents.git"
